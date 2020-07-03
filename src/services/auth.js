@@ -1,18 +1,11 @@
 import axios from "axios";
 
+const API = "https://jsonplaceholder.typicode.com";
+
 export const signUp = (body) => {
-  const API = "https://jsonplaceholder.typicode.com/";
-  return fetch({
-    method: "POST",
-    url: `${API}/sign-up`,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
+  return axios.post(`${API}/sign-up`, body);
 };
 
 export const getUsers = () => {
-  const API = "https://jsonplaceholder.typicode.com";
   return axios.get(`${API}/users`);
 };
