@@ -1,16 +1,10 @@
 FROM node:latest
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR '/app'
 
-COPY package.json /usr/scr/app
-
+COPY package.json .
 RUN npm install
-
-ADD src /usr/src/app/src
-ADD public /usr/src/app/public
-
+COPY . .
 RUN npm build
 
 CMD [ "npm", "start" ]
